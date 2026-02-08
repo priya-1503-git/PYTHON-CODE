@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <body onload="loadLanguage()">
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h1>AI Career Guide</h1>
+     <a href="index.html" class="nav-btn">Logout</a>
+    </nav>
+
+    <!-- DASHBOARD -->
+    <section class="dashboard-container">
+    <h2 class="main-title">System Analytics Dashboard</h2>
+    <p class="subtitle">
+        Overview of student trends and future career demand
+    </p>
+
+    <!-- TOP STATS -->
+    <div class="dashboard-cards">
+        <div class="stat-card">
+            <h3>Total Students Registered</h3>
+            <p>1,248</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Average Career Match Score</h3>
+            <p>82%</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Top Future Demand Domain</h3>
+            <p>AI & Data Science</p>
+        </div>
+    </div>
+
+    <!-- MAIN ANALYTICS AREA -->
+    <div class="analytics-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="left-panel">
+            <h3>Future Career Demand Analysis (2026–2035)</h3>
+
+            <div class="graph-row">
+                <span>Artificial Intelligence</span>
+                <div class="graph-bar">
+                    <div class="graph-fill ai">90%</div>
+                </div>
+            </div>
+
+            <div class="graph-row">
+                <span>Data Science</span>
+                <div class="graph-bar">
+                    <div class="graph-fill ds">85%</div>
+                </div>
+            </div>
+
+            <div class="graph-row">
+                <span>Healthcare & Medical</span>
+                <div class="graph-bar">
+                    <div class="graph-fill health">80%</div>
+                </div>
+            </div>
+
+            <div class="graph-row">
+                <span>Finance & Commerce</span>
+                <div class="graph-bar">
+                    <div class="graph-fill finance">75%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE BIG GRAPH -->
+        <div class="right-panel">
+            <h3>Demand Growth Trend</h3>
+
+            <svg viewBox="0 0 500 300" class="line-chart">
+
+                <!-- Axes -->
+                <line x1="50" y1="20" x2="50" y2="260" class="axis"/>
+                <line x1="50" y1="260" x2="480" y2="260" class="axis"/>
+
+                <!-- Line -->
+                <polyline
+                    points="50,240 130,210 210,170 290,130 370,90 450,60"
+                    class="chart-line"/>
+
+                <!-- Points -->
+                <circle cx="50" cy="240" r="5"/>
+                <circle cx="130" cy="210" r="5"/>
+                <circle cx="210" cy="170" r="5"/>
+                <circle cx="290" cy="130" r="5"/>
+                <circle cx="370" cy="90" r="5"/>
+                <circle cx="450" cy="60" r="5"/>
+
+                <!-- Labels -->
+                <text x="40" y="280">2026</text>
+                <text x="120" y="280">2027</text>
+                <text x="200" y="280">2028</text>
+                <text x="280" y="280">2029</text>
+                <text x="360" y="280">2031</text>
+                <text x="440" y="280">2035</text>
+
+            </svg>
+        </div>
+
+    </div>
+
+</section>
+
+   
+ <script>
+function loadLanguage() {
+    const lang = localStorage.getItem("language") || "en";
+    applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
+    if (lang === "ta") {
+        if (document.getElementById("titleText"))
+            document.getElementById("titleText").innerText =
+                "மாணவர் வழிகாட்டல் மற்றும் தொழில் பரிந்துரை";
+
+        if (document.getElementById("subtitleText"))
+            document.getElementById("subtitleText").innerText =
+                "இந்த செயற்கை நுண்ணறிவு அமைப்பு மாணவர்களின் விருப்பங்கள், கல்வித் திறன் மற்றும் திறன்களை பகுப்பாய்வு செய்து சரியான தொழிலை பரிந்துரைக்கிறது.";
+
+        if (document.getElementById("analyzeBtn"))
+            document.getElementById("analyzeBtn").innerText =
+                "பகுப்பாய்வு செய்";
+    } else {
+        if (document.getElementById("titleText"))
+            document.getElementById("titleText").innerText =
+                "Student Guidance & Career Recommendation";
+
+        if (document.getElementById("subtitleText"))
+            document.getElementById("subtitleText").innerText =
+                "This AI-based system analyzes student interests, academic performance, and skills to recommend suitable career paths.";
+
+        if (document.getElementById("analyzeBtn"))
+            document.getElementById("analyzeBtn").innerText =
+                "Analyze";
+    }
+}
+</script>
+
+
+    <footer>
+        <p>© 2026 AI Career Guidance System</p>
+    </footer>
+
+</body>
+</html>

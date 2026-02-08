@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Guidance & Career Recommendation</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="loadLanguage()">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h1>AI Career Guide</h1>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<section class="form-container">
+
+    <h2 class="main-title" id="titleText">
+        Student Guidance & Career Recommendation
+    </h2>
+
+    <p class="subtitle" id="subtitleText">
+        This AI-based system analyzes student interests, academic performance,
+        and skills to recommend suitable career paths.
+    </p>
+
+    <!-- FORM -->
+    <form class="guidance-form" onsubmit="analyzeStudent(event)">
+
+        <h3>Area of Interest</h3>
+        <select id="interest" required>
+            <option value="">Select your interest</option>
+            <option>Technology</option>
+            <option>Engineering</option>
+            <option>Medicine</option>
+            <option>Paramedical</option>
+            <option>Business & Management</option>
+            <option>Arts & Design</option>
+            <option>Government Services</option>
+        </select>
+
+        <h3>Which Group Are You?</h3>
+        <select id="group" required>
+            <option value="">Select your group</option>
+            <option>Biology</option>
+            <option>Commerce</option>
+            <option>Engineering</option>
+        </select>
+
+        <h3>12th Academic Performance (State Board)</h3>
+        <input type="number" step="0.01" placeholder="Overall CGPA (out of 10)" required>
+
+        <div class="marks-grid">
+            <input type="number" placeholder="Mathematics / Business Maths" required>
+            <input type="number" placeholder="Physics / Economics" required>
+            <input type="number" placeholder="Chemistry / Accountancy" required>
+            <input type="number" placeholder="Biology / Computer Science" required>
+            <input type="number" placeholder="Tamil" required>
+            <input type="number" placeholder="English" required>
+        </div>
+
+        <p class="or-text">OR</p>
+        <input type="file" class="file-input" accept=".pdf,.jpg,.png">
+
+        <h3>Primary Skill</h3>
+        <select id="skill" required>
+            <option value="">Select primary skill</option>
+            <option>Problem Solving</option>
+            <option>Programming</option>
+            <option>Logical Thinking</option>
+            <option>Communication</option>
+            <option>Creativity</option>
+            <option>Analytical Thinking</option>
+            <option>Leadership</option>
+        </select>
+
+        <button type="submit" class="analyze-btn" id="analyzeBtn">
+            Analyze
+        </button>
+
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 AI Career Guidance System</p>
+</footer>
+
+<!-- ANALYZE LOGIC (ONLY ONCE) -->
+<script>
+function analyzeStudent(event) {
+    event.preventDefault();
+
+    const group = document.getElementById("group").value;
+    const skill = document.getElementById("skill").value;
+
+    let recommendation = "";
+
+    if (group === "Biology") {
+        recommendation = "Medicine, MBBS, Nursing, Paramedical, Biomedical Research";
+    } 
+    else if (group === "Engineering") {
+        if (skill === "Programming" || skill === "Analytical Thinking") {
+            recommendation = "Artificial Intelligence, Data Science, Software Engineering";
+        } else {
+            recommendation = "ECE, Mechanical Engineering, Civil Engineering";
+        }
+    } 
+    else if (group === "Commerce") {
+        recommendation = "Chartered Accountant, CMA, MBA, Financial Analyst";
+    }
+
+    // 🔥 THIS IS THE MOST IMPORTANT LINE
+    localStorage.setItem("studentGroup", group);
+    localStorage.setItem("careerResult", recommendation);
+
+    window.location.href = "result.html";
+}
+</script>
+
+<!-- LANGUAGE AUTO APPLY (FROM HOME PAGE ONLY) -->
+<script>
+function loadLanguage() {
+    const lang = localStorage.getItem("language") || "en";
+
+    if (lang === "ta") {
+        document.getElementById("titleText").innerText =
+            "மாணவர் வழிகாட்டல் மற்றும் தொழில் பரிந்துரை";
+
+        document.getElementById("subtitleText").innerText =
+            "இந்த செயற்கை நுண்ணறிவு அமைப்பு மாணவர்களின் விருப்பங்கள், கல்வித் திறன் மற்றும் திறன்களை பகுப்பாய்வு செய்து சரியான தொழிலை பரிந்துரைக்கிறது.";
+
+        document.getElementById("analyzeBtn").innerText =
+            "பகுப்பாய்வு செய்";
+    }
+}
+</script>
+
+</body>
+</html>
