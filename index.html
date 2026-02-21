@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Design</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+    }
+
+    /* Header */
+    .header {
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    .menu-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: white;
+      border-radius: 50%;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    /* Analytics Section */
+    .analytics {
+      background: white;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .analytics-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .enable-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+
+    /* Boxes Section */
+    .box-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 15px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Bottom Navbar */
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: #ffffff;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="menu-btn">≡</div>
+    <h2>Streak Day</h2>
+  </div>
+
+  <!-- Analytics Section -->
+  <div class="analytics">
+    <h3>Analytics & Remission</h3>
+    <div class="analytics-row">
+      <span>----</span>
+      <button class="enable-btn">Enable</button>
+    </div>
+    <div class="analytics-row">
+      <span>----</span>
+      <button class="enable-btn">Enable</button>
+    </div>
+    <div class="analytics-row">
+      <span>----</span>
+      <button class="enable-btn">Enable</button>
+    </div>
+  </div>
+
+  <!-- Boxes -->
+  <div class="box-container">
+    <div class="box">BUDDIES</div>
+    <div class="box">PARENTING</div>
+    <div class="box">FOCUS</div>
+    <div class="box">Analytics</div>
+  </div>
+
+  <!-- Bottom Navbar -->
+  <div class="navbar">
+    <div class="nav-item"><span>🏠</span>Home</div>
+    <div class="nav-item"><span>👥</span>Buddies</div>
+    <div class="nav-item"><span>🎯</span>Focus</div>
+    <div class="nav-item"><span>📊</span>Analytics</div>
+    <div class="nav-item"><span>👨‍👩‍👧</span>Parenting</div>
+  </div>
+
+</body>
+</html>

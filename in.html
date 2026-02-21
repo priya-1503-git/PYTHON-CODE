@@ -1,0 +1,52 @@
+<!-- <style>
+    .overlay{
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0.8;
+        z-index: 1;
+        display: none;
+    }
+    .popupbox{
+        position: absolute;
+        z-index: 3;
+        background-color: white;
+        color: black;
+        width: 40%;
+        padding: 20px;
+        border-radius: 10px;
+        left: 30%;
+        display:none;
+    }
+</style>
+<button onclick="show()">SHOW</button>
+<div class = "overlay"></div>
+<div class="popupbox">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, doloremque animi sed optio ullam mollitia dolorum molestiae id totam voluptates dolor suscipit a voluptatum velit! Officia commodi omnis laborum neque.</p>
+    <button onclick="closepopup()">close</button>
+</div>
+<script>
+    var popupboxoverlay= document.querySelector(".overlay")
+    var popupbox=document.querySelector(".popupbox")
+    function show()
+    {
+        popupbox.style.display="block"
+        popupboxoverlay.style.display="block"
+    }
+    function closepopup()
+    {
+         popupbox.style.display="none"
+        popupboxoverlay.style.display="none"
+    }
+</script> -->
+
+<button onclick="alertmsg()">SHOW</button>
+<script>
+    function alertmsg()
+    {
+        alert("HEllo")
+    }
+</script>

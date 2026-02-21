@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Form</title>
+<style>
+/* Page background */
+body {
+  background-color: #fdf6f9;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Form heading */
+h2 {
+  color: #6b4eff;
+  letter-spacing: 1px;
+}
+
+/* Form table */
+table {
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Form cells */
+td, th {
+  padding: 10px 14px;
+  border: 1px solid #f0e6ef;
+  font-size: 14px;
+}
+
+/* Inputs & select */
+input, select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d6c8ff;
+  outline: none;
+}
+
+/* Input focus */
+input:focus, select:focus {
+  border-color: #6b4eff;
+}
+
+/* Save button */
+button {
+  background-color: #a5f3d6;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #6ee7b7;
+}
+
+/* Table header */
+th {
+  background-color: #ede9fe;
+  color: #4c1d95;
+}
+
+/* Delete button */
+td button {
+  background-color: #fecaca;
+  border-radius: 10px;
+  padding: 5px 12px;
+}
+
+td button:hover {
+  background-color: #f87171;
+  color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<center>
+<h2><u>STUDENT FORM</u></h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <td>Name</td>
+    <td><input type="text" id="name"></td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td><input type="number" id="age"></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>
+      <input type="radio" name="gender" value="Male"> Male
+      <input type="radio" name="gender" value="Female"> Female
+    </td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td>
+      <select id="course">
+        <option>Python</option>
+        <option>JavaScript</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="email" id="email"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <button onclick="saveData()">Save</button>
+    </td>
+  </tr>
+</table>
+
+<br><br>
+
+<!-- TABLE TO DISPLAY DATA -->
+<table border="1" cellpadding="8" id="studentTable">
+  <tr>
+    <th>NAME</th>
+    <th>AGE</th>
+    <th>COURSE</th>
+    <th>GENDER</th>
+    <th>EMAIL</th>
+    <th>ACTION</th>
+  </tr>
+</table>
+
+</center>
+
+<script>
+function saveData() {
+  var name = document.getElementById("name").value;
+  var age = document.getElementById("age").value;
+  var course = document.getElementById("course").value;
+  var email = document.getElementById("email").value;
+
+  var gender = "";
+  var g = document.getElementsByName("gender");
+  for (var i = 0; i < g.length; i++) {
+    if (g[i].checked) {
+      gender = g[i].value;
+    }
+  }
+
+  var table = document.getElementById("studentTable");
+  var row = table.insertRow();
+
+  row.insertCell(0).innerHTML = name;
+  row.insertCell(1).innerHTML = age;
+  row.insertCell(2).innerHTML = course;
+  row.insertCell(3).innerHTML = gender;
+  row.insertCell(4).innerHTML = email;
+  row.insertCell(5).innerHTML = "<button onclick='deleteRow(this)'>Delete</button>";
+}
+
+function deleteRow(btn) {
+  var row = btn.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+</script>
+
+</body>
+</html>
